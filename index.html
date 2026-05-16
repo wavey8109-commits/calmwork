@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CalmWork – Mobile Wellness-Massagen für Führungskräfte, Berufstätige und Senioren. Wir kommen zu Ihnen oder Sie besuchen uns im Studio.">
+  <meta property="og:title" content="CalmWork – Mobile Wellness-Massage">
+  <meta property="og:description" content="Die produktivste Stunde Ihrer Woche. Professionelle Wellness-Massagen – mobil oder im Studio.">
+  <title>CalmWork – Mobile Wellness-Massage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#hero" class="navbar__logo">
+        <img src="assets/logo.png" alt="CalmWork">
+      </a>
+      <button class="navbar__toggle" id="navToggle" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#preise">Preise</a></li>
+        <li><a href="#ablauf">So funktioniert's</a></li>
+        <li><a href="#bewertungen">Bewertungen</a></li>
+        <li><a href="#buchen" class="btn btn--nav">Jetzt buchen</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__content fade-in">
+      <p class="hero__eyebrow">Willkommen bei CalmWork</p>
+      <h1 class="hero__title">Die produktivste<br>Stunde Ihrer Woche.</h1>
+      <p class="hero__subtitle">
+        Mobile Wellness-Massagen für Führungskräfte und Berufstätige –
+        direkt zu Ihnen nach Hause oder ins Büro.
+        Oder besuchen Sie uns in unserem Wellness-Studio.
+      </p>
+      <div class="hero__checks">
+        <span><i class="fa-solid fa-check"></i> Kein Anfahrtsweg (mobiler Service)</span>
+        <span><i class="fa-solid fa-check"></i> Flexibel nach Ihrem Kalender</span>
+      </div>
+      <!-- REPLACE href with your real Calendly URL -->
+      <a href="https://calendly.com/PLACEHOLDER" class="btn btn--primary btn--large" target="_blank" rel="noopener">
+        <i class="fa-solid fa-calendar-check"></i> Termin vereinbaren
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== PAIN POINTS ===== -->
+  <section id="problem" class="section section--gray">
+    <div class="container">
+      <p class="section__eyebrow">Wir verstehen Sie</p>
+      <h2 class="section__title">Kennen Sie das?</h2>
+      <div class="pain-grid fade-in">
+
+        <div class="pain-card">
+          <div class="pain-card__icon"><i class="fa-solid fa-head-side-cough"></i></div>
+          <h3>Ständig angespannt</h3>
+          <p>Nacken, Schultern, Kopfschmerzen am Ende eines langen Arbeitstags – Ihr Körper trägt die Last Ihres Alltags.</p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-card__icon"><i class="fa-solid fa-clock"></i></div>
+          <h3>Keine Zeit für sich</h3>
+          <p>Zwischen Meetings, Familie und Verpflichtungen bleibt für Ihre eigene Erholung schlicht nichts übrig.</p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-card__icon"><i class="fa-solid fa-moon"></i></div>
+          <h3>Schlechter Schlaf</h3>
+          <p>Der Kopf schaltet nicht ab, der Körper zahlt den Preis. Erholsamer Schlaf fühlt sich wie Luxus an.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="leistungen" class="section">
+    <div class="container">
+      <p class="section__eyebrow">Unsere Leistungen</p>
+      <h2 class="section__title">Zwei Wege zur Entspannung</h2>
+      <div class="services-grid fade-in">
+
+        <div class="service-card">
+          <div class="service-card__icon"><i class="fa-solid fa-car-side"></i></div>
+          <h3>Mobile Wellness-Massage</h3>
+          <p class="service-card__tagline">Wir kommen zu Ihnen – nach Hause oder ins Büro.</p>
+          <ul class="service-card__includes">
+            <li><i class="fa-solid fa-circle-check"></i> Duftkerzen</li>
+            <li><i class="fa-solid fa-circle-check"></i> Heiße Tücher (Hot Towels)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Entspannende Hintergrundmusik</li>
+            <li><i class="fa-solid fa-circle-check"></i> Beruhigender Entspannungstee nach der Massage</li>
+          </ul>
+          <p class="service-card__note">
+            Alles, was Sie brauchen – wir bringen es mit.
+            Zum Abschluss Ihrer Behandlung serviert Ihr Therapeut Ihnen einen wärmenden Entspannungstee.
+          </p>
+          <a href="#buchen" class="btn btn--outline">Jetzt buchen</a>
+        </div>
+
+        <div class="service-card service-card--featured">
+          <div class="service-card__badge">Empfohlen</div>
+          <div class="service-card__icon"><i class="fa-solid fa-spa"></i></div>
+          <h3>Wellness-Massage im Studio</h3>
+          <p class="service-card__tagline">Besuchen Sie uns in unserem Wellness-Studio.</p>
+          <ul class="service-card__includes">
+            <li><i class="fa-solid fa-circle-check"></i> Professionelle Studioatmosphäre</li>
+            <li><i class="fa-solid fa-circle-check"></i> Wärmetherapie <em>(exklusiv im Studio verfügbar)</em></li>
+            <li><i class="fa-solid fa-circle-check"></i> Vollständig ausgestatteter Behandlungsraum</li>
+            <li><i class="fa-solid fa-circle-check"></i> Persönliche Rundum-Betreuung</li>
+          </ul>
+          <p class="service-card__note">
+            Tauchen Sie ein in unsere Wohlfühlwelt.
+            Die Wärmetherapie zur tiefen Muskelentspannung ist ausschließlich in unserem Studio verfügbar.
+          </p>
+          <a href="#buchen" class="btn btn--primary">Jetzt buchen</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICES ===== -->
+  <section id="preise" class="section section--gray">
+    <div class="container">
+      <p class="section__eyebrow">Transparente Preise</p>
+      <h2 class="section__title">Preise</h2>
+      <div class="price-wrapper fade-in">
+
+        <div class="price-table">
+          <h3>Massage-Dauer</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>45 Minuten</td>
+                <td><strong>89 €</strong></td>
+              </tr>
+              <tr>
+                <td>60 Minuten</td>
+                <td><strong>129 €</strong></td>
+              </tr>
+              <tr class="price-table__highlight">
+                <td>90 Minuten <span class="price-tag">Beliebt</span></td>
+                <td><strong>179 €</strong></td>
+              </tr>
+              <tr>
+                <td>120 Minuten</td>
+                <td><strong>250 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="price-table">
+          <h3>Anfahrtskosten <span class="price-table__subtitle">(nur mobiler Service)</span></h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>Bis 15 km</td>
+                <td><strong class="price-free">Kostenlos</strong></td>
+              </tr>
+              <tr>
+                <td>15 – 25 km</td>
+                <td><strong>10 € – 25 €</strong></td>
+              </tr>
+              <tr>
+                <td>25 – 50 km</td>
+                <td><strong>25 € – 60 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="price-table__note">
+            <i class="fa-solid fa-circle-info"></i>
+            Anfahrtskosten gelten ausschließlich für den mobilen Service.
+          </p>
+        </div>
+
+      </div>
+      <div class="price-cta">
+        <!-- REPLACE href with your real Calendly URL -->
+        <a href="https://calendly.com/PLACEHOLDER" class="btn btn--primary btn--large" target="_blank" rel="noopener">
+          <i class="fa-solid fa-calendar-check"></i> Jetzt Termin buchen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="ablauf" class="section">
+    <div class="container">
+      <p class="section__eyebrow">Einfach & unkompliziert</p>
+      <h2 class="section__title">So einfach geht's – 3 Schritte</h2>
+      <div class="steps-flow fade-in">
+
+        <div class="step">
+          <div class="step__number">01</div>
+          <div class="step__icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>Online buchen</h3>
+          <p>Wählen Sie Termin, Ort und Leistung bequem online – in nur 2 Minuten.</p>
+        </div>
+
+        <div class="step__connector">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <div class="step">
+          <div class="step__number">02</div>
+          <div class="step__icon"><i class="fa-solid fa-car-side"></i></div>
+          <h3>Wir kommen zu Ihnen</h3>
+          <p>Pünktlich, professionell und mit allem Equipment – oder Sie besuchen uns im Studio.</p>
+        </div>
+
+        <div class="step__connector">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <div class="step">
+          <div class="step__number">03</div>
+          <div class="step__icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <h3>Erholt zurück ins Leben</h3>
+          <p>Kein Aufwand, keine Fahrt. Ein beruhigender Tee zum Abschluss – und Sie sind direkt wieder fit.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="galerie" class="section section--gray">
+    <div class="container">
+      <p class="section__eyebrow">Einblicke</p>
+      <h2 class="section__title">Entspannung pur</h2>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-item">
+          <!-- Therapist performing massage -->
+          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=600&fit=crop&auto=format&q=80" alt="Professionelle Therapeutin" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <!-- Spa candles and aromatherapy -->
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop&auto=format&q=80" alt="Stimmungsvolle Duftkerzen" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <!-- Massage table with towels -->
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&h=600&fit=crop&auto=format&q=80" alt="Heiße Tücher Vorbereitung" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <!-- Hot towel being applied to client -->
+          <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&h=600&fit=crop&auto=format&q=80" alt="Heiße Tücher Behandlung" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT US – COMPANY VALUES ===== -->
+  <section id="ueber-uns" class="section">
+    <div class="container">
+      <p class="section__eyebrow">Warum CalmWork?</p>
+      <h2 class="section__title">Unsere Werte</h2>
+      <p class="section__lead fade-in">
+        Bei CalmWork glauben wir, dass echte Erholung keine Frage des Luxus ist – sondern der richtigen Priorität.
+      </p>
+      <div class="values-grid fade-in">
+
+        <div class="value-pillar">
+          <div class="value-pillar__icon"><i class="fa-solid fa-award"></i></div>
+          <h3>Professionalität</h3>
+          <p>Zertifizierte Therapeuten, vollständig versichert und mit jahrelanger Erfahrung.</p>
+        </div>
+
+        <div class="value-pillar">
+          <div class="value-pillar__icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Flexibilität</h3>
+          <p>Wir passen uns Ihrem Alltag an – nicht umgekehrt. Termine nach Ihrem Kalender.</p>
+        </div>
+
+        <div class="value-pillar">
+          <div class="value-pillar__icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h3>Ganzheitlichkeit</h3>
+          <p>Körper und Geist in Balance bringen – für nachhaltige Erholung, nicht nur eine kurze Auszeit.</p>
+        </div>
+
+        <div class="value-pillar">
+          <div class="value-pillar__icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3>Vertrauen</h3>
+          <p>Diskret, pünktlich, verlässlich – bei jedem Termin, ohne Ausnahme.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ME ===== -->
+  <section id="ueber-mich" class="section section--gray">
+    <div class="container">
+      <p class="section__eyebrow">Persönlich</p>
+      <h2 class="section__title">Über uns</h2>
+      <div class="about-me fade-in">
+        <div class="about-me__card">
+          <p class="about-me__quote">
+            „Ich glaube, dass Erholung keine Frage des Luxus ist – sondern der Effizienz."
+          </p>
+          <p>
+            Als zertifizierte Wellness-Masseurin habe ich es mir zur Aufgabe gemacht, echte Erholung
+            dorthin zu bringen, wo sie am dringendsten gebraucht wird – direkt zu Ihnen.
+          </p>
+          <p>
+            Ich habe mich auf Stressabbau für Berufstätige und Führungskräfte sowie auf einfühlsame
+            Betreuung von Senioren spezialisiert. Denn ich weiß: Wer keine Zeit hat, braucht Erholung
+            am allermeisten.
+          </p>
+          <!-- Replace the placeholder bio below with your real story -->
+          <p>
+            Meine Ausbildung und jahrelange Praxiserfahrung ermöglichen es mir, jeden Termin individuell
+            anzupassen – ob tief entspannend, gezielt verspannungslösend oder sanft und einfühlsam.
+          </p>
+          <div class="about-me__credentials">
+            <span><i class="fa-solid fa-certificate"></i> Zertifiziert</span>
+            <span><i class="fa-solid fa-shield-halved"></i> Versichert</span>
+            <span><i class="fa-solid fa-star"></i> Erfahren</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="bewertungen" class="section">
+    <div class="container">
+      <p class="section__eyebrow">Kundenstimmen</p>
+      <h2 class="section__title">Das sagen unsere Kunden</h2>
+      <div class="testimonials-grid fade-in">
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">
+            „Ich hatte keine Ahnung, wie verspannt ich wirklich war, bis zur ersten Session.
+            Jetzt buche ich alle zwei Wochen – mein Schlaf hat sich dramatisch verbessert."
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">MS</div>
+            <div>
+              <strong>Michael S.</strong>
+              <span>Abteilungsleiter, 41</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">
+            „Als Unternehmerin läuft mein Kalender voll. Das hier ist das Einzige,
+            das ich wirklich für mich tue – und es macht den spürbaren Unterschied."
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">SK</div>
+            <div>
+              <strong>Sandra K.</strong>
+              <span>Selbstständige Unternehmerin, 38</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">
+            „Ich muss nirgendwo hinfahren, und die Behandlung ist jedes Mal wunderschön.
+            So aufmerksam und professionell – ich fühle mich in den besten Händen."
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">RM</div>
+            <div>
+              <strong>Renate M.</strong>
+              <span>Rentnerin, 69</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section id="buchen" class="section cta-section">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <p class="cta-section__eyebrow">Bereit für Ihre Auszeit?</p>
+        <h2 class="cta-section__title">Ihre Erholung beginnt heute.</h2>
+        <p class="cta-section__sub">
+          Buchen Sie Ihre Wellness-Massage – mobil oder im Studio.<br>
+          Flexibel, bequem, professionell.
+        </p>
+        <!-- REPLACE href with your real Calendly URL -->
+        <a href="https://calendly.com/PLACEHOLDER" class="btn btn--white btn--large" target="_blank" rel="noopener">
+          <i class="fa-solid fa-calendar-check"></i> Jetzt Termin buchen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="assets/logo.png" alt="CalmWork" height="44" class="footer__logo-img">
+          <p>Die produktivste Stunde Ihrer Woche.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#ablauf">So funktioniert's</a></li>
+            <li><a href="#bewertungen">Bewertungen</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Kontakt</h4>
+          <ul>
+            <!-- Replace placeholder contact details below -->
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:info@calmwork.de">info@calmwork.de</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+4915755913930">+49 (0) 157 559 13930</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 CalmWork. Alle Rechte vorbehalten.</p>
+        <div class="footer__legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

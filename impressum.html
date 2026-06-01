@@ -1,263 +1,140 @@
+<!-- CalmWork | Logo: ./assets/logo.png -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
   <title>Impressum – CalmWork</title>
+  <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    .legal-hero {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
-      padding: 80px 0 60px;
-      text-align: center;
-    }
-    .legal-hero__eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--silver);
-      margin-bottom: 12px;
-      display: block;
-    }
-    .legal-hero__title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 5vw, 50px);
-      color: var(--white);
-      line-height: 1.2;
-    }
-    .legal-content {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 72px 24px 96px;
-    }
-    .legal-block {
-      margin-bottom: 48px;
-    }
-    .legal-block h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: var(--navy-dark);
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
-    }
-    .legal-block h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      color: var(--navy-dark);
-      margin: 20px 0 8px;
-    }
-    .legal-block p {
-      font-size: 15px;
-      color: var(--text-body);
-      line-height: 1.85;
-      margin-bottom: 12px;
-    }
-    .legal-block a {
-      color: var(--navy-mid);
-      text-decoration: underline;
-    }
-    .legal-block a:hover {
-      color: var(--navy-dark);
-    }
-    .legal-placeholder {
-      background: #FFF8E1;
-      border-left: 3px solid #F6C90E;
-      padding: 10px 14px;
-      font-size: 13px;
-      color: #7a6500;
-      border-radius: 0 6px 6px 0;
-      margin-bottom: 16px;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--navy-mid);
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 40px;
-      transition: var(--transition);
-    }
-    .back-link:hover {
-      color: var(--navy-dark);
-      gap: 12px;
-    }
+    :root { --bg:#FFFFFF; --bg-soft:#F9F8F6; --navy:#2d4a7a; --navy-dark:#1a1a2e; --navy-light:#e8edf5; --text:#1a1a2e; --text-muted:#6b7280; --border:#e5e7eb; --footer-bg:#1a1a2e; --footer-text:#9ca3af; --fh:'Cormorant Garamond',Georgia,serif; --fb:'Inter',system-ui,sans-serif; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:var(--fb);color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased} img{display:block;max-width:100%} a{color:inherit} button{font-family:var(--fb)}
+    .btn{display:inline-block;text-decoration:none;border-radius:6px;font-weight:600;font-size:.9rem;padding:.7rem 1.4rem;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s}
+    .btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)} .btn-primary:hover{background:var(--navy-dark)}
+    #navbar{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;padding:0 2rem}
+    #navbar.scrolled{border-bottom-color:var(--border);box-shadow:0 2px 16px rgba(0,0,0,.07)}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+    .nav-logo{line-height:0} .nav-logo img{height:48px}
+    .nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
+    .nav-links a{text-decoration:none;font-size:.875rem;font-weight:500;color:var(--text);transition:color .2s} .nav-links a:hover{color:var(--navy)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)} .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)} .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .nav-mobile{display:none;position:fixed;inset:72px 0 0 0;background:var(--bg);z-index:190;padding:2rem 1.5rem;flex-direction:column;overflow-y:auto}
+    .nav-mobile.open{display:flex}
+    .nav-mobile a{display:block;text-decoration:none;font-size:1.05rem;font-weight:500;color:var(--text);padding:.875rem 0;border-bottom:1px solid var(--border)} .nav-mobile a:hover{color:var(--navy)}
+    .nav-mobile .btn-primary{margin-top:1.25rem;text-align:center;border-bottom:none;color:#fff;padding:.75rem}
+    /* Legal page */
+    .legal-wrap{max-width:760px;margin:0 auto;padding:4.5rem 2rem 6rem}
+    .back-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.875rem;font-weight:500;color:var(--navy);text-decoration:none;margin-bottom:2.5rem;transition:gap .2s}
+    .back-link:hover{gap:.6rem}
+    .legal-wrap h1{font-family:var(--fh);font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--text);margin-bottom:2.5rem;line-height:1.15}
+    .legal-wrap h2{font-family:var(--fh);font-size:1.45rem;font-weight:600;color:var(--text);margin-top:2.5rem;margin-bottom:.875rem}
+    .legal-wrap p{color:var(--text-muted);font-size:.975rem;line-height:1.75;margin-bottom:.75rem}
+    .legal-wrap a{color:var(--navy);text-decoration:none} .legal-wrap a:hover{text-decoration:underline}
+    .legal-divider{height:1px;background:var(--border);margin:2rem 0}
+    .legal-note{background:var(--navy-light);border-left:3px solid var(--navy);padding:1.125rem 1.25rem;border-radius:0 8px 8px 0;margin-top:2rem;font-size:.875rem;color:var(--text-muted);line-height:1.65}
+    footer{background:var(--footer-bg);color:var(--footer-text);padding:4.5rem 2rem 2.25rem}
+    .footer-inner{max-width:1200px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
+    .footer-tagline{font-size:.875rem;color:var(--footer-text);margin-top:.75rem;line-height:1.6}
+    .footer-social{display:flex;gap:.625rem;margin-top:1rem}
+    .footer-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:7px;background:rgba(255,255,255,.1);color:#fff;font-size:.75rem;font-weight:700;text-decoration:none;transition:background .2s} .footer-social a:hover{background:rgba(255,255,255,.2)}
+    .footer-col h4{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.125rem}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+    .footer-col ul a{text-decoration:none;font-size:.875rem;color:var(--footer-text);display:block;transition:color .2s} .footer-col ul a:hover{color:#fff}
+    .footer-col .fc-p{font-size:.875rem;color:var(--footer-text);margin-bottom:.35rem}
+    .footer-col .fc-p a{text-decoration:none;color:var(--footer-text);transition:color .2s} .footer-col .fc-p a:hover{color:#fff}
+    .footer-badges{display:flex;flex-direction:column;gap:.3rem;margin-top:.75rem} .footer-badge{font-size:.78rem;color:var(--footer-text)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.8rem}
+    .footer-legal{display:flex;gap:.35rem;align-items:center}
+    .footer-legal a{color:var(--footer-text);text-decoration:none;transition:color .2s} .footer-legal a:hover{color:#fff} .footer-legal .sep{color:rgba(255,255,255,.25);padding:0 .25rem}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:540px){.footer-grid{grid-template-columns:1fr}.legal-wrap{padding:3rem 1.25rem 4rem}}
   </style>
 </head>
 <body>
-
-  <!-- NAVIGATION -->
-  <nav class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <a href="index.html" class="navbar__logo">
-        <img src="logo.png" alt="CalmWork">
-      </a>
-      <ul class="navbar__menu">
-        <li><a href="index.html#ueber-uns">Über uns</a></li>
-        <li><a href="index.html#leistungen">Leistungen</a></li>
-        <li><a href="index.html#preise">Preise</a></li>
-        <li><a href="index.html#ablauf">So funktioniert's</a></li>
-        <li><a href="index.html#bewertungen">Bewertungen</a></li>
-        <li><a href="index.html#buchen" class="btn btn--nav">Jetzt buchen</a></li>
-      </ul>
-      <button class="navbar__toggle" id="navToggle" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="legal-hero">
-    <span class="legal-hero__eyebrow">Rechtliches</span>
-    <h1 class="legal-hero__title">Impressum</h1>
+<nav id="navbar" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="CalmWork — Startseite"><img src="./assets/logo.png" height="48" alt="CalmWork"></a>
+    <ul class="nav-links">
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="index.html#referenzen">Referenzen</a></li>
+      <li><a href="index.html#ueber-uns">Über uns</a></li>
+      <li><a href="index.html#freelancer">Für Freelancer</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="mailto:info@calmwork.de" class="btn btn-primary">Kostenlos beraten lassen</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html#leistungen">Leistungen</a><a href="index.html#referenzen">Referenzen</a><a href="index.html#ueber-uns">Über uns</a><a href="index.html#freelancer">Für Freelancer</a><a href="index.html#kontakt">Kontakt</a>
+  <a href="mailto:info@calmwork.de" class="btn btn-primary">Kostenlos beraten lassen</a>
+</div>
 
-  <!-- CONTENT -->
-  <div class="legal-content">
+<main>
+  <div class="legal-wrap">
+    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+    <h1>Impressum</h1>
 
-    <a href="index.html" class="back-link">
-      <i class="fa-solid fa-arrow-left"></i> Zurück zur Startseite
-    </a>
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>[Firmenname — Platzhalter]<br>
+       [Straße und Hausnummer]<br>
+       [PLZ] Düsseldorf</p>
 
-    <!-- Angaben gemäß § 5 TMG -->
-    <div class="legal-block">
-      <h2>Angaben gemäß § 5 TMG</h2>
-      <p>
-        <strong>Noah Okah</strong><br>
-        Unter den Hecken 53<br>
-        41539 Dormagen<br>
-        Deutschland
-      </p>
+    <div class="legal-divider"></div>
+
+    <h2>Kontakt</h2>
+    <p>Telefon: <a href="tel:+4915755913930">+49 (0) 15755913930</a></p>
+    <p>E-Mail: <a href="mailto:info@calmwork.de">info@calmwork.de</a></p>
+    <p>Website: <a href="https://calmwork.de">https://calmwork.de</a></p>
+
+    <div class="legal-divider"></div>
+
+    <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+    <p>[Vorname Nachname — Platzhalter]<br>
+       [Adresse wie oben]</p>
+
+    <div class="legal-divider"></div>
+
+    <h2>Haftungsausschluss</h2>
+    <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+    <p>Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+    <h2>Haftung für Links</h2>
+    <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+    <h2>Urheberrecht</h2>
+    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+
+    <div class="legal-note">
+      <!-- IMPORTANT: Fill in real company name, address, legal representative and registration details. Consult a lawyer before going live. -->
+      <strong>Hinweis:</strong> Dieses Impressum ist ein Platzhalter. Bitte tragen Sie die vollständigen und rechtskonformen Angaben ein und lassen Sie das Impressum vor der Veröffentlichung von einem Rechtsanwalt prüfen.
     </div>
-
-    <!-- Kontakt -->
-    <div class="legal-block">
-      <h2>Kontakt</h2>
-      <p><strong>Telefon:</strong> <a href="tel:+4915755913930">+49 (0) 157 559 139 30</a></p>
-      <p><strong>E-Mail:</strong> <a href="mailto:info@calmwork.de">info@calmwork.de</a></p>
-    </div>
-
-    <!-- Berufsrechtliche Angaben -->
-    <div class="legal-block">
-      <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
-      <p>
-        Berufsbezeichnung: Wellness-Masseur/in<br>
-        Zuständige Kammer: [ggf. zuständige Kammer oder Verband eintragen]<br>
-        Verliehen in: Deutschland
-      </p>
-    </div>
-
-    <!-- Umsatzsteuer -->
-    <div class="legal-block">
-      <h2>Umsatzsteuer-ID</h2>
-      <p>
-        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
-        <strong>[USt-IdNr. eintragen oder diesen Abschnitt entfernen, falls nicht vorhanden]</strong>
-      </p>
-    </div>
-
-    <!-- Haftung für Inhalte -->
-    <div class="legal-block">
-      <h2>Haftung für Inhalte</h2>
-      <p>
-        Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den
-        allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
-        verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen
-        zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-      </p>
-      <p>
-        Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen
-        Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt
-        der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden
-        Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-      </p>
-    </div>
-
-    <!-- Haftung für Links -->
-    <div class="legal-block">
-      <h2>Haftung für Links</h2>
-      <p>
-        Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
-        Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
-        verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
-      </p>
-      <p>
-        Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.
-        Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche
-        Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht
-        zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-      </p>
-    </div>
-
-    <!-- Urheberrecht -->
-    <div class="legal-block">
-      <h2>Urheberrecht</h2>
-      <p>
-        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
-        Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb
-        der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw.
-        Erstellers.
-      </p>
-      <p>
-        Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-        Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte
-        Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem
-        auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis.
-        Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-      </p>
-    </div>
-
   </div>
+</main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <img src="assets/logo.png" alt="CalmWork" height="44" class="footer__logo-img">
-          <p>Die produktivste Stunde Ihrer Woche.</p>
-        </div>
-        <div class="footer__links">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html#ueber-uns">Über uns</a></li>
-            <li><a href="index.html#leistungen">Leistungen</a></li>
-            <li><a href="index.html#preise">Preise</a></li>
-            <li><a href="index.html#ablauf">So funktioniert's</a></li>
-            <li><a href="index.html#bewertungen">Bewertungen</a></li>
-          </ul>
-        </div>
-        <div class="footer__contact">
-          <h4>Kontakt</h4>
-          <ul>
-            <li>
-              <i class="fa-solid fa-envelope"></i>
-              <a href="mailto:info@calmwork.de">info@calmwork.de</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-phone"></i>
-              <a href="tel:+4915755913930">+49 (0) 157 559 139 30</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 CalmWork. Alle Rechte vorbehalten.</p>
-        <div class="footer__legal">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
-        </div>
-      </div>
+<footer id="kontakt" aria-label="Footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><a href="index.html" aria-label="CalmWork Startseite"><img src="./assets/logo.png" height="40" alt="CalmWork" style="filter:brightness(0) invert(1) opacity(0.85)"></a><p class="footer-tagline">Die bundesweite Agentur für betriebliche Gesundheitsförderung.</p><div class="footer-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a></div></div>
+      <div class="footer-col"><h4>Unternehmen</h4><ul><li><a href="index.html#quiz">Bedarfscheck</a></li><li><a href="index.html#leistungen">Leistungen</a></li><li><a href="index.html#preise">Preise</a></li><li><a href="index.html#referenzen">Referenzen</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
+      <div class="footer-col"><h4>Standorte</h4><ul><li><a href="duesseldorf.html">Düsseldorf</a></li><li><a href="koeln.html">Köln</a></li><li><a href="berlin.html">Berlin</a></li><li><a href="muenchen.html">München</a></li></ul><p class="fc-p" style="margin-top:.75rem;font-size:.8rem">Und alle weiteren Städte in Deutschland</p></div>
+      <div class="footer-col"><h4>Kontakt</h4><p class="fc-p"><a href="mailto:info@calmwork.de">info@calmwork.de</a></p><p class="fc-p"><a href="tel:+4915755913930">+49 (0) 15755913930</a></p><p class="fc-p">Düsseldorf — bundesweit tätig</p><div class="footer-badges"><span class="footer-badge">🔒 DSGVO-konform</span><span class="footer-badge">✓ Zertifizierte Partner</span><span class="footer-badge">✓ Versichert</span></div></div>
     </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <div class="footer-bottom"><span>© 2026 CalmWork. Alle Rechte vorbehalten.</span><div class="footer-legal"><a href="impressum.html">Impressum</a><span class="sep">|</span><a href="datenschutz.html">Datenschutz</a></div></div>
+  </div>
+</footer>
+<script>
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>10),{passive:true});
+  const hbg=document.getElementById('hamburger'),mob=document.getElementById('navMobile');
+  hbg.addEventListener('click',()=>{const o=mob.classList.toggle('open');hbg.classList.toggle('open',o);hbg.setAttribute('aria-expanded',o);hbg.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen')});
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');hbg.classList.remove('open');hbg.setAttribute('aria-expanded','false')}));
+</script>
 </body>
 </html>

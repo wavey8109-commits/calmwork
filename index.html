@@ -1,462 +1,1291 @@
+<!-- Place the CalmWork logo PNG at: ./assets/logo.png -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CalmWork – Mobile Wellness-Massagen für Führungskräfte, Berufstätige und Senioren. Wir kommen zu Ihnen oder Sie besuchen uns im Studio.">
-  <meta property="og:title" content="CalmWork – Mobile Wellness-Massage">
-  <meta property="og:description" content="Die produktivste Stunde Ihrer Woche. Professionelle Wellness-Massagen – mobil oder im Studio.">
-  <title>CalmWork – Mobile Wellness-Massage</title>
+  <title>CalmWork — Betriebliche Gesundheitsförderung</title>
+  <meta name="description" content="CalmWork vermittelt zertifizierte Health & Fitness Freelancer an Unternehmen — schnell, flexibel und passgenau für Ihre BGF-Anforderungen.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── CSS Custom Properties ─────────────────────────────────────────── */
+    :root {
+      --bg-white:     #FFFFFF;
+      --bg-off-white: #F9F8F6;
+      --text-primary: #1a1a2e;
+      --text-secondary: #6b7280;
+      --accent:       #2d4a7a;
+      --accent-dark:  #1e3558;
+      --accent-light: #e8edf5;
+      --accent-mid:   #8fa8c8;
+      --border:       #e5e7eb;
+      --footer-bg:    #1a1a2e;
+      --footer-text:  #9ca3af;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --radius-sm:    8px;
+      --radius-md:    12px;
+      --radius-lg:    16px;
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--bg-white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button { font-family: var(--font-body); }
+
+    /* ── Layout Helpers ────────────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section { padding: 5rem 2rem; }
+
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.875rem;
+    }
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.18;
+      color: var(--text-primary);
+    }
+
+    /* ── Buttons ───────────────────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.35rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      border: 2px solid transparent;
+    }
+    .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.8);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+    .btn-lg { padding: 0.8rem 1.75rem; font-size: 0.95rem; }
+
+    /* ── Fade-in animation ─────────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════════════════════════════════════ */
+    #navbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--bg-white);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      padding: 0 2rem;
+    }
+    #navbar.scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo { line-height: 0; }
+    .nav-logo img { height: 48px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+    }
+    .hamburger:focus-visible { outline: 3px solid var(--accent); }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav overlay */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 72px 0 0 0;
+      background: var(--bg-white);
+      z-index: 190;
+      padding: 2rem 1.5rem;
+      flex-direction: column;
+      gap: 0;
+      overflow-y: auto;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      display: block;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .nav-mobile a:hover { color: var(--accent); }
+    .nav-mobile .btn-primary {
+      margin-top: 1.25rem;
+      text-align: center;
+      border-bottom: none;
+      padding: 0.75rem;
+      color: #fff;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════════════════════ */
+    #hero {
+      background: var(--bg-white);
+      padding: 6rem 2rem 5rem;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 5.5vw, 4.25rem);
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--text-primary);
+      margin-bottom: 1.375rem;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 0.875rem;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .stat-card {
+      background: var(--accent-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+    }
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       HOW IT WORKS
+    ══════════════════════════════════════════════════════════════════════ */
+    #leistungen { background: var(--bg-off-white); }
+    .how-header { text-align: center; margin-bottom: 3rem; }
+    .how-header .section-label { display: block; text-align: center; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .step-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.875rem;
+      transition: box-shadow 0.25s;
+    }
+    .step-card:hover { box-shadow: 0 6px 24px rgba(45,74,122,0.09); }
+    .step-number {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 0.625rem;
+    }
+    .step-desc {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       FOR WHOM
+    ══════════════════════════════════════════════════════════════════════ */
+    #for-whom { background: var(--bg-white); }
+    .for-whom-header { text-align: center; margin-bottom: 3rem; }
+    .for-whom-header .section-label { display: block; text-align: center; }
+
+    .for-whom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .fw-card {
+      border-radius: var(--radius-lg);
+      padding: 2.75rem 2.5rem;
+    }
+    .fw-card.light { background: var(--accent-light); }
+    .fw-card.dark  { background: var(--accent); color: #fff; }
+
+    .fw-card .badge-pill {
+      display: inline-block;
+      background: #fff;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.25rem;
+    }
+    .fw-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .fw-card.dark h3 { color: #fff; }
+
+    .fw-card ul { list-style: none; margin-bottom: 2rem; }
+    .fw-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.925rem;
+      padding: 0.45rem 0;
+      color: var(--text-primary);
+    }
+    .fw-card.dark ul li { color: rgba(255,255,255,0.9); }
+    .fw-card ul li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      line-height: 1.65;
+    }
+    .fw-card.dark ul li::before { color: rgba(255,255,255,0.65); }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       QUIZ
+    ══════════════════════════════════════════════════════════════════════ */
+    #quiz { background: var(--bg-off-white); }
+    .quiz-header { text-align: center; margin-bottom: 2.75rem; }
+    .quiz-header .section-label { display: block; text-align: center; }
+    .quiz-header p {
+      color: var(--text-secondary);
+      font-size: 0.975rem;
+      margin-top: 0.75rem;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .quiz-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2.75rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Progress dots */
+    .progress-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s, transform 0.25s;
+    }
+    .dot.done   { background: var(--accent-mid); }
+    .dot.active { background: var(--accent); transform: scale(1.25); }
+
+    /* Quiz step */
+    .quiz-step { animation: fadeSlide 0.3s ease; }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateX(12px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .quiz-question {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1.375rem;
+      line-height: 1.3;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      margin-bottom: 1.75rem;
+    }
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      text-align: left;
+      background: var(--bg-white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 1rem;
+      font-size: 0.925rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .quiz-option:hover,
+    .quiz-option.selected {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .quiz-option:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    .quiz-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-quiz-back {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      transition: color 0.2s;
+    }
+    .btn-quiz-back:hover { color: var(--accent); }
+    .btn-quiz-next {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s, transform 0.15s;
+    }
+    .btn-quiz-next:not(:disabled):hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .btn-quiz-next:disabled { opacity: 0.4; cursor: default; }
+    .btn-quiz-next:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    /* Quiz result */
+    .quiz-result { display: none; text-align: center; }
+    .result-icon { font-size: 3.25rem; margin-bottom: 1rem; }
+    .result-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.875rem;
+    }
+    .result-desc {
+      font-size: 0.935rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .result-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .result-tag {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.35rem 0.875rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .result-ctas {
+      display: flex;
+      gap: 0.875rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       FREELANCER FORM
+    ══════════════════════════════════════════════════════════════════════ */
+    #freelancer { background: var(--bg-white); }
+    .freelancer-header { text-align: center; margin-bottom: 2.5rem; }
+    .freelancer-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+      font-weight: 600;
+      margin-bottom: 0.625rem;
+    }
+    .freelancer-header p { color: var(--text-secondary); font-size: 1rem; }
+
+    .form-wrap { max-width: 600px; margin: 0 auto; }
+    .revenue-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.125rem;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+    .form-group .opt { font-weight: 400; color: var(--text-secondary); }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.625rem 0.875rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      background: var(--bg-white);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: auto;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #b0b7c3; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(45,74,122,0.12);
+    }
+    .form-group textarea { min-height: 96px; resize: vertical; }
+
+    .checkbox-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.875rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .btn-submit:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 3.5rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .success-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .success-card h3 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.875rem;
+    }
+    .success-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════════════════════════ */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 4.5rem 2rem 2.25rem;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: var(--footer-text);
+      margin-top: 0.875rem;
+      line-height: 1.6;
+    }
+    .footer-contact { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-contact a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      color: var(--footer-text);
+      transition: color 0.2s;
+    }
+    .footer-contact a:hover { color: #fff; }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.125rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
+    .footer-col ul a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      color: var(--footer-text);
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .footer-legal { display: flex; gap: 0.25rem; align-items: center; }
+    .footer-legal a { color: var(--footer-text); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: #fff; }
+    .footer-legal .sep { color: rgba(255,255,255,0.25); padding: 0 0.35rem; }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; }
+      .stat-card { flex: 1 1 140px; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 3.5rem 1.25rem; }
+      #hero { padding: 4rem 1.25rem 3.5rem; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .steps-grid { grid-template-columns: 1fr; }
+      .for-whom-grid { grid-template-columns: 1fr; }
+
+      .quiz-card { padding: 1.875rem 1.5rem; }
+      .quiz-question { font-size: 1.3rem; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 2.25rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { text-align: center; }
+      .hero-stats { flex-direction: column; }
+      .result-ctas { flex-direction: column; align-items: stretch; }
+      .result-ctas .btn { text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <a href="#hero" class="navbar__logo">
-        <img src="logo.png" alt="CalmWork">
-      </a>
-      <button class="navbar__toggle" id="navToggle" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="navbar__menu" id="navMenu">
-        <li><a href="#ueber-uns">Über uns</a></li>
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#preise">Preise</a></li>
-        <li><a href="#ablauf">So funktioniert's</a></li>
-        <li><a href="#bewertungen">Bewertungen</a></li>
-        <li><a href="#buchen" class="btn btn--nav">Jetzt buchen</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- ══ NAVIGATION ═══════════════════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="CalmWork — zur Startseite">
+      <img src="./assets/logo.png" height="48" alt="CalmWork">
+    </a>
 
-  <!-- ===== HERO ===== -->
-  <section id="hero" class="hero">
-    <div class="hero__overlay"></div>
-    <div class="container hero__content fade-in">
-      <p class="hero__eyebrow">Willkommen bei CalmWork</p>
-      <h1 class="hero__title">Die produktivste<br>Stunde Ihrer Woche.</h1>
-      <p class="hero__subtitle">
-        Mobile Wellness-Massagen für Führungskräfte und Berufstätige –
-        direkt zu Ihnen nach Hause oder ins Büro.
-        Oder besuchen Sie uns in unserem Wellness-Studio.
-      </p>
-      <div class="hero__checks">
-        <span><i class="fa-solid fa-check"></i> Kein Anfahrtsweg (mobiler Service)</span>
-        <span><i class="fa-solid fa-check"></i> Flexibel nach Ihrem Kalender</span>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#for-whom">Für Unternehmen</a></li>
+      <li><a href="#freelancer">Für Freelancer</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#quiz" class="btn btn-primary">Beratung anfragen</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobilnavigation">
+  <a href="#leistungen">Leistungen</a>
+  <a href="#for-whom">Für Unternehmen</a>
+  <a href="#freelancer">Für Freelancer</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="#quiz" class="btn btn-primary">Beratung anfragen</a>
+</div>
+
+<main>
+
+  <!-- ══ HERO ═══════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="fade-in">
+        <h1 class="hero-heading" id="hero-heading">Die richtige Expertise für Ihr Unternehmen.</h1>
+        <p class="hero-sub">CalmWork vermittelt zertifizierte Health &amp; Fitness Freelancer an Unternehmen — schnell, flexibel und passgenau für Ihre BGF-Anforderungen.</p>
+        <div class="hero-ctas">
+          <a href="#quiz" class="btn btn-primary btn-lg">Bedarfscheck starten →</a>
+          <a href="#freelancer" class="btn btn-outline btn-lg">Als Freelancer bewerben</a>
+        </div>
       </div>
-      <!-- REPLACE href with your real Calendly URL -->
-      <a href="https://calendly.com/calm-work/buchung" class="btn btn--primary btn--large" target="_blank" rel="noopener">
-        <i class="fa-solid fa-calendar-check"></i> Termin vereinbaren
-      </a>
-    </div>
-  </section>
 
-  <!-- ===== PAIN POINTS ===== -->
-  <section id="problem" class="section section--gray">
-    <div class="container">
-      <p class="section__eyebrow">Wir verstehen Sie</p>
-      <h2 class="section__title">Kennen Sie das?</h2>
-      <div class="pain-grid fade-in">
-
-        <div class="pain-card">
-          <div class="pain-card__icon"><i class="fa-solid fa-head-side-cough"></i></div>
-          <h3>Ständig angespannt</h3>
-          <p>Nacken, Schultern, Kopfschmerzen am Ende eines langen Arbeitstags – Ihr Körper trägt die Last Ihres Alltags.</p>
+      <div class="hero-stats fade-in" style="transition-delay:0.15s">
+        <div class="stat-card">
+          <span class="stat-number">60+</span>
+          <span class="stat-label">Freelancer im Netzwerk</span>
         </div>
-
-        <div class="pain-card">
-          <div class="pain-card__icon"><i class="fa-solid fa-clock"></i></div>
-          <h3>Keine Zeit für sich</h3>
-          <p>Zwischen Meetings, Familie und Verpflichtungen bleibt für Ihre eigene Erholung schlicht nichts übrig.</p>
+        <div class="stat-card">
+          <span class="stat-number">48h</span>
+          <span class="stat-label">Durchschn. Matching-Zeit</span>
         </div>
-
-        <div class="pain-card">
-          <div class="pain-card__icon"><i class="fa-solid fa-moon"></i></div>
-          <h3>Schlechter Schlaf</h3>
-          <p>Der Kopf schaltet nicht ab, der Körper zahlt den Preis. Erholsamer Schlaf fühlt sich wie Luxus an.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES ===== -->
-  <section id="leistungen" class="section">
-    <div class="container">
-      <p class="section__eyebrow">Unsere Leistungen</p>
-      <h2 class="section__title">Zwei Wege zur Entspannung</h2>
-      <div class="services-grid fade-in">
-
-        <div class="service-card">
-          <div class="service-card__icon"><i class="fa-solid fa-car-side"></i></div>
-          <h3>Mobile Wellness-Massage</h3>
-          <p class="service-card__tagline">Wir kommen zu Ihnen – nach Hause oder ins Büro.</p>
-          <ul class="service-card__includes">
-            <li><i class="fa-solid fa-circle-check"></i> Duftkerzen</li>
-            <li><i class="fa-solid fa-circle-check"></i> Heiße Tücher (Hot Towels)</li>
-            <li><i class="fa-solid fa-circle-check"></i> Entspannende Hintergrundmusik</li>
-            <li><i class="fa-solid fa-circle-check"></i> Beruhigender Entspannungstee nach der Massage</li>
-          </ul>
-          <p class="service-card__note">
-            Alles, was Sie brauchen – wir bringen es mit.
-            Zum Abschluss Ihrer Behandlung serviert Ihr Therapeut Ihnen einen wärmenden Entspannungstee.
-          </p>
-          <a href="#buchen" class="btn btn--outline">Jetzt buchen</a>
-        </div>
-
-        <div class="service-card service-card--featured">
-          <div class="service-card__badge">Empfohlen</div>
-          <div class="service-card__icon"><i class="fa-solid fa-spa"></i></div>
-          <h3>Wellness-Massage im Studio</h3>
-          <p class="service-card__tagline">Besuchen Sie uns in unserem Wellness-Studio.</p>
-          <ul class="service-card__includes">
-            <li><i class="fa-solid fa-circle-check"></i> Professionelle Studioatmosphäre</li>
-            <li><i class="fa-solid fa-circle-check"></i> Wärmetherapie <em>(exklusiv im Studio verfügbar)</em></li>
-            <li><i class="fa-solid fa-circle-check"></i> Vollständig ausgestatteter Behandlungsraum</li>
-            <li><i class="fa-solid fa-circle-check"></i> Persönliche Rundum-Betreuung</li>
-          </ul>
-          <p class="service-card__note">
-            Tauchen Sie ein in unsere Wohlfühlwelt.
-            Die Wärmetherapie zur tiefen Muskelentspannung ist ausschließlich in unserem Studio verfügbar.
-          </p>
-          <a href="#buchen" class="btn btn--primary">Jetzt buchen</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRICES ===== -->
-  <section id="preise" class="section section--gray">
-    <div class="container">
-      <p class="section__eyebrow">Transparente Preise</p>
-      <h2 class="section__title">Preise</h2>
-      <div class="price-wrapper fade-in">
-
-        <div class="price-table">
-          <h3>Massage-Dauer</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td>45 Minuten</td>
-                <td><strong>89 €</strong></td>
-              </tr>
-              <tr>
-                <td>60 Minuten</td>
-                <td><strong>129 €</strong></td>
-              </tr>
-              <tr class="price-table__highlight">
-                <td>90 Minuten <span class="price-tag">Beliebt</span></td>
-                <td><strong>179 €</strong></td>
-              </tr>
-              <tr>
-                <td>120 Minuten</td>
-                <td><strong>250 €</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="price-table">
-          <h3>Anfahrtskosten <span class="price-table__subtitle">(nur mobiler Service)</span></h3>
-          <table>
-            <tbody>
-              <tr>
-                <td>Bis 15 km</td>
-                <td><strong class="price-free">Kostenlos</strong></td>
-              </tr>
-              <tr>
-                <td>15 – 25 km</td>
-                <td><strong>10 € – 25 €</strong></td>
-              </tr>
-              <tr>
-                <td>25 – 50 km</td>
-                <td><strong>25 € – 60 €</strong></td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="price-table__note">
-            <i class="fa-solid fa-circle-info"></i>
-            Anfahrtskosten gelten ausschließlich für den mobilen Service.
-          </p>
-        </div>
-
-      </div>
-      <div class="price-cta">
-        <!-- REPLACE href with your real Calendly URL -->
-        <a href="https://calendly.com/calm-work/buchung" class="btn btn--primary btn--large" target="_blank" rel="noopener">
-          <i class="fa-solid fa-calendar-check"></i> Jetzt Termin buchen
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== HOW IT WORKS ===== -->
-  <section id="ablauf" class="section">
-    <div class="container">
-      <p class="section__eyebrow">Einfach & unkompliziert</p>
-      <h2 class="section__title">So einfach geht's – 3 Schritte</h2>
-      <div class="steps-flow fade-in">
-
-        <div class="step">
-          <div class="step__number">01</div>
-          <div class="step__icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <h3>Online buchen</h3>
-          <p>Wählen Sie Termin, Ort und Leistung bequem online – in nur 2 Minuten.</p>
-        </div>
-
-        <div class="step__connector">
-          <i class="fa-solid fa-chevron-right"></i>
-        </div>
-
-        <div class="step">
-          <div class="step__number">02</div>
-          <div class="step__icon"><i class="fa-solid fa-car-side"></i></div>
-          <h3>Wir kommen zu Ihnen</h3>
-          <p>Pünktlich, professionell und mit allem Equipment – oder Sie besuchen uns im Studio.</p>
-        </div>
-
-        <div class="step__connector">
-          <i class="fa-solid fa-chevron-right"></i>
-        </div>
-
-        <div class="step">
-          <div class="step__number">03</div>
-          <div class="step__icon"><i class="fa-solid fa-mug-hot"></i></div>
-          <h3>Erholt zurück ins Leben</h3>
-          <p>Kein Aufwand, keine Fahrt. Ein beruhigender Tee zum Abschluss – und Sie sind direkt wieder fit.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== GALLERY ===== -->
-  <section id="galerie" class="section section--gray">
-    <div class="container">
-      <p class="section__eyebrow">Einblicke</p>
-      <h2 class="section__title">Entspannung pur</h2>
-      <div class="gallery-grid fade-in">
-        <div class="gallery-item">
-          <!-- Therapist performing massage -->
-          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=600&fit=crop&auto=format&q=80" alt="Professionelle Therapeutin" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <!-- Spa candles and aromatherapy -->
-          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop&auto=format&q=80" alt="Stimmungsvolle Duftkerzen" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <!-- Massage table with towels -->
-          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&h=600&fit=crop&auto=format&q=80" alt="Heiße Tücher Vorbereitung" loading="lazy">
+        <div class="stat-card">
+          <span class="stat-number">60 / 40</span>
+          <span class="stat-label">Revenue Split für Freelancer</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ABOUT US – COMPANY VALUES ===== -->
-  <section id="ueber-uns" class="section">
+  <!-- ══ HOW IT WORKS ═══════════════════════════════════════════════════ -->
+  <section id="leistungen" aria-labelledby="how-heading">
     <div class="container">
-      <p class="section__eyebrow">Warum CalmWork?</p>
-      <h2 class="section__title">Unsere Werte</h2>
-      <p class="section__lead fade-in">
-        Bei CalmWork glauben wir, dass echte Erholung keine Frage des Luxus ist – sondern der richtigen Priorität.
-      </p>
-      <div class="values-grid fade-in">
-
-        <div class="value-pillar">
-          <div class="value-pillar__icon"><i class="fa-solid fa-award"></i></div>
-          <h3>Professionalität</h3>
-          <p>Zertifizierte Therapeuten, vollständig versichert und mit jahrelanger Erfahrung.</p>
-        </div>
-
-        <div class="value-pillar">
-          <div class="value-pillar__icon"><i class="fa-solid fa-sliders"></i></div>
-          <h3>Flexibilität</h3>
-          <p>Wir passen uns Ihrem Alltag an – nicht umgekehrt. Termine nach Ihrem Kalender.</p>
-        </div>
-
-        <div class="value-pillar">
-          <div class="value-pillar__icon"><i class="fa-solid fa-heart-pulse"></i></div>
-          <h3>Ganzheitlichkeit</h3>
-          <p>Körper und Geist in Balance bringen – für nachhaltige Erholung, nicht nur eine kurze Auszeit.</p>
-        </div>
-
-        <div class="value-pillar">
-          <div class="value-pillar__icon"><i class="fa-solid fa-handshake"></i></div>
-          <h3>Vertrauen</h3>
-          <p>Diskret, pünktlich, verlässlich – bei jedem Termin, ohne Ausnahme.</p>
-        </div>
-
+      <div class="how-header fade-in">
+        <span class="section-label">So funktioniert's</span>
+        <h2 class="section-heading" id="how-heading">In drei Schritten zu Ihrem Experten</h2>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== ABOUT ME ===== -->
-  <section id="ueber-mich" class="section section--gray">
-    <div class="container">
-      <p class="section__eyebrow">Persönlich</p>
-      <h2 class="section__title">Über uns</h2>
-      <div class="about-me fade-in">
-        <div class="about-me__card">
-          <p class="about-me__quote">
-            „Ich glaube, dass Erholung keine Frage des Luxus ist – sondern der Effizienz."
-          </p>
-          <p>
-            Als zertifizierte Wellness-Masseurin habe ich es mir zur Aufgabe gemacht, echte Erholung
-            dorthin zu bringen, wo sie am dringendsten gebraucht wird – direkt zu Ihnen.
-          </p>
-          <p>
-            Ich habe mich auf Stressabbau für Berufstätige und Führungskräfte sowie auf einfühlsame
-            Betreuung von Senioren spezialisiert. Denn ich weiß: Wer keine Zeit hat, braucht Erholung
-            am allermeisten.
-          </p>
-          <!-- Replace the placeholder bio below with your real story -->
-          <p>
-            Meine Ausbildung und jahrelange Praxiserfahrung ermöglichen es mir, jeden Termin individuell
-            anzupassen – ob tief entspannend, gezielt verspannungslösend oder sanft und einfühlsam.
-          </p>
-          <div class="about-me__credentials">
-            <span><i class="fa-solid fa-certificate"></i> Zertifiziert</span>
-            <span><i class="fa-solid fa-shield-halved"></i> Versichert</span>
-            <span><i class="fa-solid fa-star"></i> Erfahren</span>
-          </div>
+      <div class="steps-grid">
+        <div class="step-card fade-in" style="transition-delay:0.05s">
+          <p class="step-number">01</p>
+          <h3 class="step-title">Bedarf analysieren</h3>
+          <p class="step-desc">Unser kurzes Quiz ermittelt den genauen Bedarf Ihres Unternehmens — in nur 5 Fragen, ohne Aufwand.</p>
+        </div>
+        <div class="step-card fade-in" style="transition-delay:0.12s">
+          <p class="step-number">02</p>
+          <h3 class="step-title">Matching &amp; Vorstellung</h3>
+          <p class="step-desc">Auf Basis Ihrer Antworten werden passende Freelancer aus unserem Netzwerk vorgeschlagen und persönlich vorgestellt.</p>
+        </div>
+        <div class="step-card fade-in" style="transition-delay:0.19s">
+          <p class="step-number">03</p>
+          <h3 class="step-title">Direkt loslegen</h3>
+          <p class="step-desc">Vertrag, Onboarding und Abrechnung übernimmt CalmWork — Sie konzentrieren sich auf Ihr Team.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
-  <section id="bewertungen" class="section">
+  <!-- ══ FOR WHOM ════════════════════════════════════════════════════════ -->
+  <section id="for-whom" aria-labelledby="forwhom-heading">
     <div class="container">
-      <p class="section__eyebrow">Kundenstimmen</p>
-      <h2 class="section__title">Das sagen unsere Kunden</h2>
-      <div class="testimonials-grid fade-in">
-
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="testimonial-card__text">
-            „Ich hatte keine Ahnung, wie verspannt ich wirklich war, bis zur ersten Session.
-            Jetzt buche ich alle zwei Wochen – mein Schlaf hat sich dramatisch verbessert."
-          </p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">MS</div>
-            <div>
-              <strong>Michael S.</strong>
-              <span>Abteilungsleiter, 41</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="testimonial-card__text">
-            „Als Unternehmerin läuft mein Kalender voll. Das hier ist das Einzige,
-            das ich wirklich für mich tue – und es macht den spürbaren Unterschied."
-          </p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">SK</div>
-            <div>
-              <strong>Sandra K.</strong>
-              <span>Selbstständige Unternehmerin, 38</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="testimonial-card__text">
-            „Ich muss nirgendwo hinfahren, und die Behandlung ist jedes Mal wunderschön.
-            So aufmerksam und professionell – ich fühle mich in den besten Händen."
-          </p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">RM</div>
-            <div>
-              <strong>Renate M.</strong>
-              <span>Rentnerin, 69</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="for-whom-header fade-in">
+        <span class="section-label">Für wen</span>
+        <h2 class="section-heading" id="forwhom-heading">Maßgeschneidert für beide Seiten</h2>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== CTA ===== -->
-  <section id="buchen" class="section cta-section">
-    <div class="container">
-      <div class="cta-content fade-in">
-        <p class="cta-section__eyebrow">Bereit für Ihre Auszeit?</p>
-        <h2 class="cta-section__title">Ihre Erholung beginnt heute.</h2>
-        <p class="cta-section__sub">
-          Buchen Sie Ihre Wellness-Massage – mobil oder im Studio.<br>
-          Flexibel, bequem, professionell.
-        </p>
-        <!-- REPLACE href with your real Calendly URL -->
-        <a href="https://calendly.com/calm-work/buchung" class="btn btn--white btn--large" target="_blank" rel="noopener">
-          <i class="fa-solid fa-calendar-check"></i> Jetzt Termin buchen
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <img src="assets/logo.png" alt="CalmWork" height="44" class="footer__logo-img">
-          <p>Die produktivste Stunde Ihrer Woche.</p>
-        </div>
-        <div class="footer__links">
-          <h4>Navigation</h4>
+      <div class="for-whom-grid">
+        <!-- Unternehmen -->
+        <div class="fw-card light fade-in">
+          <h3>Für Unternehmen</h3>
           <ul>
-            <li><a href="#ueber-uns">Über uns</a></li>
-            <li><a href="#leistungen">Leistungen</a></li>
-            <li><a href="#preise">Preise</a></li>
-            <li><a href="#ablauf">So funktioniert's</a></li>
-            <li><a href="#bewertungen">Bewertungen</a></li>
+            <li>Kein langwieriger Recruiting-Prozess</li>
+            <li>Zertifizierte, geprüfte Freelancer</li>
+            <li>Flexible Einsatzdauer und Formate</li>
+            <li>Abrechnung über CalmWork</li>
           </ul>
+          <a href="#quiz" class="btn btn-primary">Bedarfscheck starten →</a>
         </div>
-        <div class="footer__contact">
-          <h4>Kontakt</h4>
+
+        <!-- Freelancer -->
+        <div class="fw-card dark fade-in" style="transition-delay:0.1s">
+          <span class="badge-pill">60 / 40 Revenue Split</span>
+          <h3>Für Freelancer</h3>
           <ul>
-            <!-- Replace placeholder contact details below -->
-            <li>
-              <i class="fa-solid fa-envelope"></i>
-              <a href="mailto:info@calmwork.de">info@calmwork.de</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-phone"></i>
-              <a href="tel:+4915755913930">+49 (0) 157 559 139 30</a>
-            </li>
+            <li>Wir bringen die Kunden zu dir</li>
+            <li>Transparente &amp; faire Vergütung</li>
+            <li>Flexibel als Nebentätigkeit möglich</li>
+            <li>Schnelles Onboarding in 48h</li>
           </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 CalmWork. Alle Rechte vorbehalten.</p>
-        <div class="footer__legal">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+          <a href="#freelancer" class="btn btn-outline-white">Jetzt bewerben →</a>
         </div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- ══ QUIZ ════════════════════════════════════════════════════════════ -->
+  <section id="quiz" aria-labelledby="quiz-heading">
+    <div class="container">
+      <div class="quiz-header fade-in">
+        <span class="section-label">Für Unternehmen</span>
+        <h2 class="section-heading" id="quiz-heading">Welche Gesundheitsförderung braucht Ihr Unternehmen?</h2>
+        <p>Beantworten Sie 5 kurze Fragen — wir empfehlen Ihnen die passenden Maßnahmen.</p>
+      </div>
+
+      <div class="quiz-card fade-in" style="transition-delay:0.1s">
+
+        <!-- ── Questions ─────────────────────────────────────────────── -->
+        <div id="quizBody">
+          <div class="progress-dots" id="progressDots" aria-label="Fortschritt" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5">
+            <div class="dot active"  data-i="0"></div>
+            <div class="dot"         data-i="1"></div>
+            <div class="dot"         data-i="2"></div>
+            <div class="dot"         data-i="3"></div>
+            <div class="dot"         data-i="4"></div>
+          </div>
+
+          <!-- Q1 -->
+          <div class="quiz-step" id="step-0">
+            <p class="quiz-question">Wie groß ist Ihr Unternehmen?</p>
+            <div class="quiz-options" role="group" aria-label="Antwortmöglichkeiten">
+              <button type="button" class="quiz-option" data-val="small">👤 1–10 Mitarbeiter</button>
+              <button type="button" class="quiz-option" data-val="medium">👥 11–50 Mitarbeiter</button>
+              <button type="button" class="quiz-option" data-val="large">🏢 51–200 Mitarbeiter</button>
+              <button type="button" class="quiz-option" data-val="enterprise">🏙️ Mehr als 200 Mitarbeiter</button>
+            </div>
+            <div class="quiz-nav">
+              <span></span>
+              <button type="button" class="btn-quiz-next" disabled>Weiter →</button>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="quiz-step" id="step-1" hidden>
+            <p class="quiz-question">Was ist die größte Herausforderung in Ihrem Team?</p>
+            <div class="quiz-options" role="group" aria-label="Antwortmöglichkeiten">
+              <button type="button" class="quiz-option" data-val="stress">😰 Stress &amp; Burnout</button>
+              <button type="button" class="quiz-option" data-val="back">🪑 Rücken &amp; Haltung</button>
+              <button type="button" class="quiz-option" data-val="nutrition">🥗 Ernährung &amp; Energie</button>
+              <button type="button" class="quiz-option" data-val="mental">🧠 Mentale Gesundheit</button>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn-quiz-back">← Zurück</button>
+              <button type="button" class="btn-quiz-next" disabled>Weiter →</button>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="quiz-step" id="step-2" hidden>
+            <p class="quiz-question">Wo sollen die Maßnahmen stattfinden?</p>
+            <div class="quiz-options" role="group" aria-label="Antwortmöglichkeiten">
+              <button type="button" class="quiz-option" data-val="onsite">🏠 Vor Ort</button>
+              <button type="button" class="quiz-option" data-val="remote">💻 Online / Remote</button>
+              <button type="button" class="quiz-option" data-val="hybrid">🔀 Hybrid</button>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn-quiz-back">← Zurück</button>
+              <button type="button" class="btn-quiz-next" disabled>Weiter →</button>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="quiz-step" id="step-3" hidden>
+            <p class="quiz-question">Wie oft sollen Maßnahmen stattfinden?</p>
+            <div class="quiz-options" role="group" aria-label="Antwortmöglichkeiten">
+              <button type="button" class="quiz-option" data-val="once">📅 Einmalig / Workshop</button>
+              <button type="button" class="quiz-option" data-val="monthly">🔁 Monatlich</button>
+              <button type="button" class="quiz-option" data-val="weekly">📆 Wöchentlich</button>
+              <button type="button" class="quiz-option" data-val="continuous">✨ Kontinuierlich</button>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn-quiz-back">← Zurück</button>
+              <button type="button" class="btn-quiz-next" disabled>Weiter →</button>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="quiz-step" id="step-4" hidden>
+            <p class="quiz-question">Budget pro Monat?</p>
+            <div class="quiz-options" role="group" aria-label="Antwortmöglichkeiten">
+              <button type="button" class="quiz-option" data-val="low">💡 Unter 500 €</button>
+              <button type="button" class="quiz-option" data-val="mid">💼 500–2.000 €</button>
+              <button type="button" class="quiz-option" data-val="high">📈 2.000–5.000 €</button>
+              <button type="button" class="quiz-option" data-val="premium">🚀 Über 5.000 €</button>
+            </div>
+            <div class="quiz-nav">
+              <button type="button" class="btn-quiz-back">← Zurück</button>
+              <button type="button" class="btn-quiz-next" disabled>Ergebnis anzeigen →</button>
+            </div>
+          </div>
+        </div><!-- /quizBody -->
+
+        <!-- ── Result ─────────────────────────────────────────────────── -->
+        <div class="quiz-result" id="quizResult" aria-live="polite">
+          <div class="result-icon" id="rIcon"></div>
+          <h3 class="result-title" id="rTitle"></h3>
+          <p class="result-desc"  id="rDesc"></p>
+          <div class="result-tags" id="rTags"></div>
+          <div class="result-ctas">
+            <a id="rCTA" href="mailto:info@calmwork.de" class="btn btn-primary btn-lg">Angebot anfragen</a>
+            <button type="button" class="btn btn-outline btn-lg" onclick="resetQuiz()">Quiz wiederholen</button>
+          </div>
+        </div>
+
+      </div><!-- /quiz-card -->
+    </div>
+  </section>
+
+  <!-- ══ FREELANCER FORM ════════════════════════════════════════════════ -->
+  <section id="freelancer" aria-labelledby="freelancer-heading">
+    <div class="container">
+      <div class="freelancer-header fade-in">
+        <h2 id="freelancer-heading">Werde Teil des CalmWork-Netzwerks</h2>
+        <p>Zertifizierte Experten aus Gesundheit &amp; Fitness — bewirb dich jetzt.</p>
+      </div>
+
+      <div class="form-wrap fade-in" style="transition-delay:0.1s">
+        <div style="text-align:center">
+          <span class="revenue-badge">60 / 40 Revenue Split — Du erhältst 60% jedes Kundenumsatzes</span>
+        </div>
+
+        <form id="freelancerForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vorname">Vorname</label>
+              <input type="text" id="vorname" name="vorname" required placeholder="Max" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="nachname">Nachname</label>
+              <input type="text" id="nachname" name="nachname" required placeholder="Mustermann" autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" required placeholder="max@example.de" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="telefon">Telefon</label>
+              <input type="tel" id="telefon" name="telefon" placeholder="+49 …" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="schwerpunkt">Schwerpunkt</label>
+            <select id="schwerpunkt" name="schwerpunkt" required>
+              <option value="" disabled selected>Bitte auswählen</option>
+              <option value="fitness">Fitness &amp; Personal Training</option>
+              <option value="yoga">Yoga &amp; Meditation</option>
+              <option value="ernaehrung">Ernährungsberatung</option>
+              <option value="physio">Physiotherapie</option>
+              <option value="mental">Mental Health Coaching</option>
+              <option value="stress">Stressmanagement</option>
+              <option value="ruecken">Rückengesundheit</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Format</label>
+            <div class="checkbox-group" role="group" aria-label="Format auswählen">
+              <label class="checkbox-label">
+                <input type="checkbox" name="format" value="onsite">
+                Vor Ort beim Kunden
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="format" value="remote">
+                Online / Remote
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="format" value="workshops">
+                Workshops &amp; Vorträge
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="zertifizierungen">Zertifizierungen &amp; Ausbildungen</label>
+            <textarea id="zertifizierungen" name="zertifizierungen" placeholder="z.B. Zertifizierter Personal Trainer (IHK), 200h Yoga Teacher Training…"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="verfuegbarkeit">Verfügbarkeit</label>
+            <input type="text" id="verfuegbarkeit" name="verfuegbarkeit" placeholder="z.B. flexibel, ca. 10h/Woche">
+          </div>
+
+          <div class="form-group">
+            <label for="motivation">Motivationsschreiben <span class="opt">(optional)</span></label>
+            <textarea id="motivation" name="motivation" placeholder="Warum möchtest du Teil von CalmWork werden?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Bewerbung absenden →</button>
+        </form>
+
+        <div class="success-card" id="successCard" role="alert">
+          <div class="success-icon">🎉</div>
+          <h3>Bewerbung erhalten!</h3>
+          <p>Vielen Dank für deine Bewerbung! Wir prüfen dein Profil und melden uns innerhalb von 48 Stunden bei dir. Wir freuen uns darauf, dich im CalmWork-Netzwerk willkommen zu heißen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
+<footer id="kontakt" aria-label="Footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <img src="./assets/logo.png" height="40" alt="CalmWork"
+             style="filter: brightness(0) invert(1) opacity(0.9);">
+        <p class="footer-tagline">Die Agentur für betriebliche Gesundheitsförderung.</p>
+        <div class="footer-contact">
+          <a href="mailto:info@calmwork.de">info@calmwork.de</a>
+          <a href="tel:+4915755913930">+49 (0) 15755913930</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="#quiz">Bedarfscheck</a></li>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#for-whom">Preise</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Freelancer</h4>
+        <ul>
+          <li><a href="#freelancer">Jetzt bewerben</a></li>
+          <li><a href="#leistungen">Wie es funktioniert</a></li>
+          <li><a href="#for-whom">60/40 Split</a></li>
+          <li><a href="#quiz">FAQ</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 CalmWork. Alle Rechte vorbehalten.</span>
+      <div class="footer-legal">
+        <a href="#">Impressum</a>
+        <span class="sep">|</span>
+        <a href="#">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ SCRIPTS ═════════════════════════════════════════════════════════ -->
+<script>
+  /* ── Nav: shadow on scroll ─────────────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  /* ── Hamburger menu ────────────────────────────────────────────────── */
+  const hamburger  = document.getElementById('hamburger');
+  const navMobile  = document.getElementById('navMobile');
+  hamburger.addEventListener('click', () => {
+    const open = navMobile.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    hamburger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  });
+  navMobile.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMobile.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Menü öffnen');
+    });
+  });
+
+  /* ── Scroll fade-in animations ─────────────────────────────────────── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  /* ── Quiz engine ───────────────────────────────────────────────────── */
+  let currentStep = 0;
+  const answers   = {};
+  const totalSteps = 5;
+
+  const allSteps   = Array.from(document.querySelectorAll('.quiz-step'));
+  const dots       = Array.from(document.querySelectorAll('#progressDots .dot'));
+  const progressEl = document.getElementById('progressDots');
+
+  function updateDots() {
+    dots.forEach((d, i) => {
+      d.classList.remove('active', 'done');
+      if (i < currentStep) d.classList.add('done');
+      if (i === currentStep) d.classList.add('active');
+    });
+    progressEl.setAttribute('aria-valuenow', currentStep + 1);
+  }
+
+  function showStep(idx) {
+    allSteps.forEach(s => s.hidden = true);
+    allSteps[idx].hidden = false;
+    currentStep = idx;
+    updateDots();
+    /* restore next-btn state for this step */
+    const nextBtn = allSteps[idx].querySelector('.btn-quiz-next');
+    nextBtn.disabled = !allSteps[idx].querySelector('.quiz-option.selected');
+  }
+
+  /* option clicks */
+  document.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const step = btn.closest('.quiz-step');
+      step.querySelectorAll('.quiz-option').forEach(b => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+      answers[currentStep] = btn.dataset.val;
+      step.querySelector('.btn-quiz-next').disabled = false;
+    });
+  });
+
+  /* next buttons */
+  document.querySelectorAll('.btn-quiz-next').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentStep < totalSteps - 1) {
+        showStep(currentStep + 1);
+      } else {
+        showResult();
+      }
+    });
+  });
+
+  /* back buttons */
+  document.querySelectorAll('.btn-quiz-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentStep > 0) showStep(currentStep - 1);
+    });
+  });
+
+  /* result data */
+  const RESULTS = {
+    stress: {
+      icon: '🧘',
+      title: 'Stressmanagement & Resilienz',
+      desc: 'Unser Netzwerk umfasst zertifizierte Yoga-Lehrer, Meditationscoaches und Resilienztrainer, die Ihr Team gezielt bei Stressbewältigung und Burnout-Prävention unterstützen.',
+      tags: ['Yoga & Meditation', 'Atemübungen', 'Resilienz-Coaching', 'Online möglich']
+    },
+    back: {
+      icon: '🏃',
+      title: 'Bewegung & Rückengesundheit',
+      desc: 'Spezialisierte Fitness- und Physiotherapie-Freelancer helfen Ihrem Team, Haltungsschäden zu vermeiden und die körperliche Gesundheit am Arbeitsplatz aktiv zu fördern.',
+      tags: ['Rückentraining', 'Ergonomie-Beratung', 'Aktive Pausen', 'Vor Ort oder Remote']
+    },
+    nutrition: {
+      icon: '🥗',
+      title: 'Ernährungsberatung & Vitalität',
+      desc: 'Zertifizierte Ernährungscoaches entwickeln individuelle Programme für mehr Energie, bessere Konzentration und langfristige Vitalität in Ihrem Team.',
+      tags: ['Ernährungs-Workshops', 'Vitalitätsprogramme', 'Einzelberatung', 'Online']
+    },
+    mental: {
+      icon: '🧠',
+      title: 'Mentale Gesundheit & Coaching',
+      desc: 'Unsere Mental-Health-Coaches und psychologischen Berater begleiten Ihr Team und Ihre Führungskräfte diskret und professionell zu mehr mentaler Stärke und Wohlbefinden.',
+      tags: ['Stress-Coaching', 'Führungskräfte-Beratung', 'Team-Workshops', 'Vertraulich']
+    }
+  };
+
+  function showResult() {
+    const key = answers[1] || 'stress';
+    const r   = RESULTS[key] || RESULTS.stress;
+
+    document.getElementById('rIcon').textContent  = r.icon;
+    document.getElementById('rTitle').textContent = r.title;
+    document.getElementById('rDesc').textContent  = r.desc;
+
+    const tagsEl = document.getElementById('rTags');
+    tagsEl.innerHTML = '';
+    r.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className   = 'result-tag';
+      span.textContent = tag;
+      tagsEl.appendChild(span);
+    });
+
+    document.getElementById('quizBody').style.display   = 'none';
+    document.getElementById('quizResult').style.display = 'block';
+  }
+
+  function resetQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    document.querySelectorAll('.quiz-option').forEach(b => {
+      b.classList.remove('selected');
+      b.removeAttribute('aria-pressed');
+    });
+    document.querySelectorAll('.btn-quiz-next').forEach(b => b.disabled = true);
+    document.getElementById('quizResult').style.display = 'none';
+    document.getElementById('quizBody').style.display   = '';
+    showStep(0);
+  }
+
+  /* ── Freelancer form ───────────────────────────────────────────────── */
+  document.getElementById('freelancerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    const card = document.getElementById('successCard');
+    card.style.display = 'block';
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+
 </body>
 </html>

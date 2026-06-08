@@ -1,164 +1,342 @@
-<!-- CalmWork | Logo: ./assets/logo.png -->
+<!-- CalmWork Website | Logo: ./assets/logo.png -->
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" hreflang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – CalmWork</title>
   <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://calmwork.de/datenschutz.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --bg:#FFFFFF; --bg-soft:#F9F8F6; --navy:#2d4a7a; --navy-dark:#1a1a2e; --navy-light:#e8edf5; --text:#1a1a2e; --text-muted:#6b7280; --border:#e5e7eb; --footer-bg:#1a1a2e; --footer-text:#9ca3af; --fh:'Cormorant Garamond',Georgia,serif; --fb:'Inter',system-ui,sans-serif; }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:var(--fb);color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased} img{display:block;max-width:100%} a{color:inherit} button{font-family:var(--fb)}
-    .btn{display:inline-block;text-decoration:none;border-radius:6px;font-weight:600;font-size:.9rem;padding:.7rem 1.4rem;cursor:pointer;border:2px solid transparent;transition:background .2s,color .2s}
-    .btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)} .btn-primary:hover{background:var(--navy-dark)}
-    #navbar{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;padding:0 2rem}
-    #navbar.scrolled{border-bottom-color:var(--border);box-shadow:0 2px 16px rgba(0,0,0,.07)}
-    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
-    .nav-logo{line-height:0} .nav-logo img{height:48px}
-    .nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
-    .nav-links a{text-decoration:none;font-size:.875rem;font-weight:500;color:var(--text);transition:color .2s} .nav-links a:hover{color:var(--navy)}
-    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:4px}
-    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
-    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)} .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)} .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    .nav-mobile{display:none;position:fixed;inset:72px 0 0 0;background:var(--bg);z-index:190;padding:2rem 1.5rem;flex-direction:column;overflow-y:auto}
-    .nav-mobile.open{display:flex}
-    .nav-mobile a{display:block;text-decoration:none;font-size:1.05rem;font-weight:500;color:var(--text);padding:.875rem 0;border-bottom:1px solid var(--border)} .nav-mobile a:hover{color:var(--navy)}
-    .nav-mobile .btn-primary{margin-top:1.25rem;text-align:center;border-bottom:none;color:#fff;padding:.75rem}
-    .legal-wrap{max-width:760px;margin:0 auto;padding:4.5rem 2rem 6rem}
-    .back-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.875rem;font-weight:500;color:var(--navy);text-decoration:none;margin-bottom:2.5rem;transition:gap .2s}
-    .back-link:hover{gap:.6rem}
-    .legal-wrap h1{font-family:var(--fh);font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--text);margin-bottom:2.5rem;line-height:1.15}
-    .legal-wrap h2{font-family:var(--fh);font-size:1.45rem;font-weight:600;color:var(--text);margin-top:2.5rem;margin-bottom:.875rem}
-    .legal-wrap h3{font-size:1rem;font-weight:700;color:var(--text);margin-top:1.5rem;margin-bottom:.5rem}
-    .legal-wrap p{color:var(--text-muted);font-size:.975rem;line-height:1.75;margin-bottom:.75rem}
-    .legal-wrap ul{color:var(--text-muted);font-size:.975rem;line-height:1.75;padding-left:1.5rem;margin-bottom:.75rem}
-    .legal-wrap ul li{margin-bottom:.35rem}
-    .legal-wrap a{color:var(--navy);text-decoration:none} .legal-wrap a:hover{text-decoration:underline}
-    .legal-divider{height:1px;background:var(--border);margin:2rem 0}
-    .legal-note{background:var(--navy-light);border-left:3px solid var(--navy);padding:1.125rem 1.25rem;border-radius:0 8px 8px 0;margin-top:2rem;font-size:.875rem;color:var(--text-muted);line-height:1.65}
-    footer{background:var(--footer-bg);color:var(--footer-text);padding:4.5rem 2rem 2.25rem}
-    .footer-inner{max-width:1200px;margin:0 auto}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
-    .footer-tagline{font-size:.875rem;color:var(--footer-text);margin-top:.75rem;line-height:1.6}
-    .footer-social{display:flex;gap:.625rem;margin-top:1rem}
-    .footer-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:7px;background:rgba(255,255,255,.1);color:#fff;font-size:.75rem;font-weight:700;text-decoration:none;transition:background .2s} .footer-social a:hover{background:rgba(255,255,255,.2)}
-    .footer-col h4{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.125rem}
-    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;padding-left:0;margin-bottom:0}
-    .footer-col ul li{margin-bottom:0}
-    .footer-col ul a{text-decoration:none;font-size:.875rem;color:var(--footer-text);display:block;transition:color .2s} .footer-col ul a:hover{color:#fff}
-    .footer-col .fc-p{font-size:.875rem;color:var(--footer-text);margin-bottom:.35rem}
-    .footer-col .fc-p a{text-decoration:none;color:var(--footer-text);transition:color .2s} .footer-col .fc-p a:hover{color:#fff}
-    .footer-badges{display:flex;flex-direction:column;gap:.3rem;margin-top:.75rem} .footer-badge{font-size:.78rem;color:var(--footer-text)}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.8rem}
-    .footer-legal{display:flex;gap:.35rem;align-items:center}
-    .footer-legal a{color:var(--footer-text);text-decoration:none;transition:color .2s} .footer-legal a:hover{color:#fff} .footer-legal .sep{color:rgba(255,255,255,.25);padding:0 .25rem}
-    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.footer-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:540px){.footer-grid{grid-template-columns:1fr}.legal-wrap{padding:3rem 1.25rem 4rem}}
+    :root {
+      --bg: #FFFFFF;
+      --bg-soft: #F9F8F6;
+      --navy: #2d4a7a;
+      --navy-dark: #1a1a2e;
+      --navy-light: #e8edf5;
+      --text: #1a1a2e;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --footer-bg: #1a1a2e;
+      --footer-text: #9ca3af;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; border-radius: 2px; }
+    img { max-width: 100%; height: auto; }
+
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 72px; transition: box-shadow 0.2s ease; }
+    nav.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .nav-logo a { display: flex; align-items: center; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: #fff !important; padding: 0.55rem 1.25rem; border-radius: 6px; font-weight: 600; font-size: 0.875rem; transition: background 0.2s, transform 0.15s; }
+    .nav-cta:hover { background: var(--navy-dark); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s ease; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-overlay.open { display: flex; }
+    .mobile-overlay a { font-size: 1.4rem; font-weight: 600; color: var(--text); }
+    .mobile-overlay .nav-cta { font-size: 1rem; padding: 0.75rem 2rem; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; background: none; border: none; cursor: pointer; color: var(--text); line-height: 1; }
+
+    .legal-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 0.7; }
+
+    .legal-content h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--navy-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .legal-content .subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-content h2 {
+      font-size: 1.4rem;
+      color: var(--navy-dark);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-content h3 {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .legal-content p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-content ul {
+      margin: 0.5rem 0 0.75rem 1.5rem;
+    }
+
+    .legal-content ul li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 0.25rem;
+    }
+
+    .legal-content a {
+      color: var(--navy);
+      text-decoration: underline;
+    }
+
+    .placeholder-notice {
+      background: var(--navy-light);
+      border: 1px solid var(--navy);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    .placeholder {
+      background: var(--bg-soft);
+      border: 1px dashed var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer { background: var(--footer-bg); color: var(--footer-text); padding: 4rem 2rem 0; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; padding-bottom: 3rem; }
+    .footer-brand-desc { font-size: 0.875rem; line-height: 1.7; margin: 1.25rem 0 1.5rem; }
+    .footer-socials { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .footer-social-badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 500; color: var(--footer-text); transition: background 0.2s; }
+    .footer-social-badge:hover { background: rgba(255,255,255,0.18); }
+    .footer-col h4 { font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 1.25rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.875rem; color: var(--footer-text); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-contact-item { display: flex; gap: 0.5rem; font-size: 0.875rem; margin-bottom: 0.6rem; }
+    .footer-contact-item a { color: var(--footer-text); transition: color 0.2s; }
+    .footer-contact-item a:hover { color: #fff; }
+    .footer-trust { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1rem; }
+    .footer-trust-item { font-size: 0.8rem; display: flex; align-items: center; gap: 0.3rem; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom a { color: var(--footer-text); transition: color 0.2s; }
+    .footer-bottom a:hover { color: #fff; }
+
+    @media (max-width: 1024px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links, .nav-cta-wrap { display: none; }
+      .hamburger { display: flex; }
+      .legal-content { padding: 2.5rem 1.25rem 4rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
   </style>
 </head>
 <body>
-<nav id="navbar" role="navigation" aria-label="Hauptnavigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="CalmWork — Startseite"><img src="./assets/logo.png" height="48" alt="CalmWork"></a>
-    <ul class="nav-links">
-      <li><a href="index.html#leistungen">Leistungen</a></li>
-      <li><a href="index.html#referenzen">Referenzen</a></li>
-      <li><a href="index.html#ueber-uns">Über uns</a></li>
-      <li><a href="index.html#freelancer">Für Freelancer</a></li>
-      <li><a href="index.html#kontakt">Kontakt</a></li>
-      <li><a href="mailto:info@calmwork.de" class="btn btn-primary">Kostenlos beraten lassen</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+
+<nav id="main-nav" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-logo">
+    <a href="index.html" aria-label="CalmWork Startseite"><img src="./assets/logo.png" height="48" alt="CalmWork"></a>
   </div>
+  <ul class="nav-links">
+    <li><a href="index.html#leistungen">Leistungen</a></li>
+    <li><a href="index.html#referenzen">Referenzen</a></li>
+    <li><a href="index.html#about">Über uns</a></li>
+    <li><a href="index.html#freelancer">Für Freelancer</a></li>
+    <li><a href="mailto:info@calmwork.de">Kontakt</a></li>
+    <li class="nav-cta-wrap"><a href="mailto:info@calmwork.de" class="nav-cta">Kostenlose Beratung vereinbaren</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="index.html#leistungen">Leistungen</a><a href="index.html#referenzen">Referenzen</a><a href="index.html#ueber-uns">Über uns</a><a href="index.html#freelancer">Für Freelancer</a><a href="index.html#kontakt">Kontakt</a>
-  <a href="mailto:info@calmwork.de" class="btn btn-primary">Kostenlos beraten lassen</a>
+
+<div class="mobile-overlay" id="mobile-overlay" role="dialog" aria-label="Mobilmenü">
+  <button class="mobile-close" id="mobile-close" aria-label="Menü schließen">×</button>
+  <a href="index.html#leistungen">Leistungen</a>
+  <a href="index.html#referenzen">Referenzen</a>
+  <a href="index.html#about">Über uns</a>
+  <a href="index.html#freelancer">Für Freelancer</a>
+  <a href="mailto:info@calmwork.de">Kontakt</a>
+  <a href="mailto:info@calmwork.de" class="nav-cta">Kostenlose Beratung vereinbaren</a>
 </div>
 
 <main>
-  <div class="legal-wrap">
+  <div class="legal-content">
     <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
     <h1>Datenschutzerklärung</h1>
+    <p class="subtitle">Zuletzt aktualisiert: Juni 2026</p>
 
     <h2>1. Verantwortliche Stelle</h2>
-    <p>Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Website:</p>
-    <p>[Firmenname — Platzhalter]<br>
-       [Adresse — Platzhalter], Düsseldorf<br>
-       E-Mail: <a href="mailto:info@calmwork.de">info@calmwork.de</a><br>
-       Telefon: <a href="tel:+4915755913930">+49 (0) 15755913930</a></p>
-
-    <div class="legal-divider"></div>
+    <p>
+      Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br><br>
+      CalmWork (Einzelunternehmen)<br>
+      Inhaber: Noah Okah<br>
+      Unter den Hecken 53<br>
+      41539 Dormagen<br>
+      Deutschland<br><br>
+      E-Mail: <a href="mailto:info@calmwork.de">info@calmwork.de</a><br>
+      Telefon: <a href="tel:+4915755913930">+49 (0) 15755913930</a>
+    </p>
 
     <h2>2. Datenerfassung auf dieser Website</h2>
 
-    <h3>Kontakt- und Bewerbungsformular</h3>
-    <p>Wenn Sie uns per Formular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-    <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+    <h3>Kontaktformular und Bewerbungsformular</h3>
+    <p>Wenn Sie uns über das Kontakt- oder Bewerbungsformular auf dieser Website kontaktieren, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Telefonnummer, Nachricht) ausschließlich zur Bearbeitung Ihrer Anfrage gespeichert. Diese Daten werden nicht ohne Ihre Einwilligung an Dritte weitergegeben.</p>
+    <p>Die Verarbeitung Ihrer Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage im Zusammenhang mit der Durchführung eines Vertrags steht, oder auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an einer effektiven Bearbeitung Ihrer Anfrage.</p>
 
-    <h3>Server-Log-Dateien</h3>
-    <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind unter anderem: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse.</p>
-
-    <div class="legal-divider"></div>
+    <h3>Server-Logfiles</h3>
+    <p>Der Hosting-Anbieter dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch übermittelt. Dies sind: Browsertyp und -version, Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage, IP-Adresse.</p>
+    <p>Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Erfassung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
 
     <h2>3. Hosting</h2>
-    <p>[Hosting-Anbieter eintragen — Platzhalter]</p>
-    <p>Der Einsatz des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter.</p>
+    <p>Diese Website wird bei folgendem Anbieter gehostet:<br>
+    GitHub, Inc.<br>
+    88 Colin P Kelly Jr St<br>
+    San Francisco, CA 94107, USA</p>
+    <p>Die Nutzung des Hosters erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO). GitHub verarbeitet beim Aufruf dieser Website automatisch Server-Logfiles, die u.&nbsp;a. Ihre IP-Adresse enthalten können. Da GitHub in den USA ansässig ist, kann es zu einer Übermittlung personenbezogener Daten in ein Drittland kommen. GitHub ist unter dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
 
-    <div class="legal-divider"></div>
+    <h2>4. Cookies</h2>
+    <p>Diese Website verwendet <strong>keine Tracking- oder Marketing-Cookies</strong>. Es werden ausschließlich technisch notwendige Cookies eingesetzt, soweit dies für den Betrieb der Website erforderlich ist.</p>
+    <p>Wir verwenden keine Analyse-Tools (wie Google Analytics), keine Social-Media-Plugins und kein Conversion-Tracking auf dieser Website.</p>
 
-    <h2>4. Ihre Rechte</h2>
+    <h2>5. Google Fonts</h2>
+    <p>Diese Website nutzt Google Fonts (Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) zur einheitlichen Darstellung von Schriftarten. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in Ihren Browser-Cache, um Texte und Schriftarten korrekt anzuzeigen.</p>
+    <p>Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die Nutzung von Google Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+    <p>Weitere Informationen zu Google Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">https://developers.google.com/fonts/faq</a> sowie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>.</p>
+
+    <h2>6. Ihre Rechte (DSGVO Art. 15–21)</h2>
     <p>Sie haben jederzeit das Recht:</p>
     <ul>
-      <li>Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu erhalten</li>
-      <li>Unrichtige Daten berichtigen zu lassen</li>
-      <li>Die Löschung Ihrer bei uns gespeicherten Daten zu verlangen</li>
-      <li>Die Einschränkung der Datenverarbeitung zu verlangen</li>
-      <li>Der Verarbeitung Ihrer Daten zu widersprechen</li>
-      <li>Datenübertragbarkeit zu verlangen</li>
+      <li><strong>Auskunft</strong> über die bei uns zu Ihrer Person gespeicherten Daten zu erhalten (Art. 15 DSGVO)</li>
+      <li>die <strong>Berichtigung</strong> unrichtiger Daten zu verlangen (Art. 16 DSGVO)</li>
+      <li>die <strong>Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO)</li>
+      <li>die <strong>Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18 DSGVO)</li>
+      <li>der Datenverarbeitung zu <strong>widersprechen</strong> (Art. 21 DSGVO)</li>
+      <li>Ihre Daten in einem gängigen Format zu erhalten (<strong>Datenübertragbarkeit</strong>, Art. 20 DSGVO)</li>
+      <li>eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft zu <strong>widerrufen</strong> (Art. 7 Abs. 3 DSGVO)</li>
     </ul>
-    <p>Zur Geltendmachung dieser Rechte wenden Sie sich bitte an: <a href="mailto:info@calmwork.de">info@calmwork.de</a></p>
-    <p>Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Die zuständige Aufsichtsbehörde richtet sich nach dem Bundesland Ihres Wohnsitzes.</p>
+    <p>Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:info@calmwork.de">info@calmwork.de</a></p>
 
-    <div class="legal-divider"></div>
+    <h2>7. Beschwerderecht</h2>
+    <p>Sie haben das Recht, sich bei der zuständigen Datenschutzaufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Die zuständige Aufsichtsbehörde für Nordrhein-Westfalen ist:</p>
+    <p>
+      Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br>
+      Postfach 20 04 44<br>
+      40102 Düsseldorf<br>
+      E-Mail: poststelle@ldi.nrw.de<br>
+      Website: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a>
+    </p>
 
-    <h2>5. Cookies</h2>
-    <p>Diese Website verwendet keine Tracking-Cookies. Es werden ausschließlich technisch notwendige Cookies eingesetzt, die für den Betrieb der Website erforderlich sind.</p>
-
-    <div class="legal-divider"></div>
-
-    <h2>6. Google Fonts</h2>
-    <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen.</p>
-    <p>Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse unsere Website aufgerufen wurde. Die Nutzung von Google Web Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
-    <p>Wenn Ihr Browser Web Fonts nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt. Weitere Informationen zu Google Web Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">https://developers.google.com/fonts/faq</a>.</p>
-
-    <div class="legal-note">
-      <!-- IMPORTANT: Placeholder only. Have reviewed by a DSGVO lawyer before going live. Add real hosting provider, analytics tools, cookie policy, and all applicable data processing details. -->
-      <strong>Hinweis:</strong> Diese Datenschutzerklärung ist ein Platzhalter und erhebt keinen Anspruch auf Vollständigkeit. Sie muss vor Inbetriebnahme der Website von einem auf Datenschutzrecht spezialisierten Anwalt geprüft und vervollständigt werden.
-    </div>
+    <h2>8. Datensicherheit</h2>
+    <p>Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+    <p>Wenn die SSL- oder TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
   </div>
 </main>
 
-<footer id="kontakt" aria-label="Footer">
+<footer>
   <div class="footer-inner">
-    <div class="footer-grid">
-      <div><a href="index.html" aria-label="CalmWork Startseite"><img src="./assets/logo.png" height="40" alt="CalmWork" style="filter:brightness(0) invert(1) opacity(0.85)"></a><p class="footer-tagline">Die bundesweite Agentur für betriebliche Gesundheitsförderung.</p><div class="footer-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a></div></div>
-      <div class="footer-col"><h4>Unternehmen</h4><ul><li><a href="index.html#quiz">Bedarfscheck</a></li><li><a href="index.html#leistungen">Leistungen</a></li><li><a href="index.html#preise">Preise</a></li><li><a href="index.html#referenzen">Referenzen</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
-      <div class="footer-col"><h4>Standorte</h4><ul><li><a href="duesseldorf.html">Düsseldorf</a></li><li><a href="koeln.html">Köln</a></li><li><a href="berlin.html">Berlin</a></li><li><a href="muenchen.html">München</a></li></ul><p class="fc-p" style="margin-top:.75rem;font-size:.8rem">Und alle weiteren Städte in Deutschland</p></div>
-      <div class="footer-col"><h4>Kontakt</h4><p class="fc-p"><a href="mailto:info@calmwork.de">info@calmwork.de</a></p><p class="fc-p"><a href="tel:+4915755913930">+49 (0) 15755913930</a></p><p class="fc-p">Düsseldorf — bundesweit tätig</p><div class="footer-badges"><span class="footer-badge">🔒 DSGVO-konform</span><span class="footer-badge">✓ Zertifizierte Partner</span><span class="footer-badge">✓ Versichert</span></div></div>
+    <div class="footer-col">
+      <a href="index.html" aria-label="CalmWork Startseite">
+        <img src="./assets/logo.png" height="40" alt="CalmWork" style="filter: brightness(0) invert(1) opacity(0.85);">
+      </a>
+      <p class="footer-brand-desc">Die bundesweite Agentur für betriebliches Gesundheitsmanagement.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-badge">LinkedIn</a>
+        <a href="#" class="footer-social-badge">Instagram</a>
+      </div>
     </div>
-    <div class="footer-bottom"><span>© 2026 CalmWork. Alle Rechte vorbehalten.</span><div class="footer-legal"><a href="impressum.html">Impressum</a><span class="sep">|</span><a href="datenschutz.html">Datenschutz</a></div></div>
+    <div class="footer-col">
+      <h4>Unternehmen</h4>
+      <ul class="footer-links">
+        <li><a href="index.html#quiz">Bedarfscheck</a></li>
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#preise">Preise</a></li>
+        <li><a href="index.html#referenzen">Referenzen</a></li>
+        <li><a href="mailto:info@calmwork.de">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Standorte</h4>
+      <ul class="footer-links">
+        <li><a href="duesseldorf.html">Düsseldorf</a></li>
+        <li><a href="koeln.html">Köln</a></li>
+        <li><a href="berlin.html">Berlin</a></li>
+        <li><a href="muenchen.html">München</a></li>
+        <li style="color:var(--footer-text);font-size:0.8rem;">Und alle weiteren Städte in Deutschland</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <div class="footer-contact-item"><a href="mailto:info@calmwork.de">info@calmwork.de</a></div>
+      <div class="footer-contact-item"><a href="tel:+4915755913930">+49 (0) 15755913930</a></div>
+      <div class="footer-contact-item">Düsseldorf — bundesweit tätig</div>
+      <div class="footer-trust">
+        <div class="footer-trust-item">🔒 DSGVO-konform</div>
+        <div class="footer-trust-item">✓ Zertifizierte Partner</div>
+        <div class="footer-trust-item">✓ Versichert</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 CalmWork. Alle Rechte vorbehalten.</span>
+    <div class="footer-bottom-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
   </div>
 </footer>
+
 <script>
-  const navbar=document.getElementById('navbar');
-  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>10),{passive:true});
-  const hbg=document.getElementById('hamburger'),mob=document.getElementById('navMobile');
-  hbg.addEventListener('click',()=>{const o=mob.classList.toggle('open');hbg.classList.toggle('open',o);hbg.setAttribute('aria-expanded',o);hbg.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen')});
-  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');hbg.classList.remove('open');hbg.setAttribute('aria-expanded','false')}));
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('mobile-overlay');
+  const mobileClose = document.getElementById('mobile-close');
+  hamburger.addEventListener('click', () => { const isOpen = overlay.classList.toggle('open'); hamburger.classList.toggle('open', isOpen); hamburger.setAttribute('aria-expanded', isOpen); document.body.style.overflow = isOpen ? 'hidden' : ''; });
+  mobileClose.addEventListener('click', closeMenu);
+  overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  function closeMenu() { overlay.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
 </script>
 </body>
 </html>
